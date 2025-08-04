@@ -1,0 +1,10 @@
+{% render 'partials/head.liquid' %}
+
+<h1>Menu</h1>
+
+{% for dish in dishes %}
+  {{ dish.name }}
+  <img src="{{ dish.imagelink }}" alt="{{ dish.name }}" />
+{% endfor %}
+
+{% render 'partials/foot.liquid' %}

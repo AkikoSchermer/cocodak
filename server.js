@@ -1,7 +1,14 @@
-require('dotenv').config();
+import 'dotenv/config';
+import express from 'express';
+import { Liquid } from 'liquidjs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const { initializeApp } = require('firebase/app');
-const { getDatabase, ref, get } = require('firebase/database');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, get } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -13,11 +20,27 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID
 };
 
-const app = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
-module.exports = app;
+// module.exports = firebaseApp;
 
-const db = getDatabase(app);
+const db = getDatabase(firebaseApp);
+
+const app = express();
+
+const engine = new Liquid({
+    root: path.resolve(__dirname, 'views'),
+    extname: '.liquid'
+  });
+
+app.engine('liquid', engine.express());
+app.set('views', './views'); 
+app.set('view engine', 'liquid'); 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
 
 async function fetchDishes() {
   const dishesRef = ref(db, 'products');  // your path
@@ -32,4 +55,30 @@ async function fetchDishes() {
   }
 }
 
-fetchDishes();
+app.get('/', async (req, res) => {
+    const dishes = await fetchDishes();
+    res.render('home', { dishes });
+  });
+  
+app.get('/about', async (req, res) => {
+    // const dishes = await fetchDishes();
+    res.render('about', { });
+  });
+  
+app.get('/menu', async (req, res) => {
+    const dishes = await fetchDishes();
+    res.render('menu', { dishes });
+  });
+
+app.get('/contact', async (req, res) => {
+    // const dishes = await fetchDishes();
+    res.render('contact', {  });
+  });
+
+app.set('port', process.env.PORT || 8025)
+
+// Start Express op, haal daarbij het zojuist ingestelde poortnummer op
+app.listen(app.get('port'), function () {
+  // Toon een bericht in de console en geef het poortnummer door
+  console.log(`Application started on http://localhost:${app.get('port')}`)
+})
