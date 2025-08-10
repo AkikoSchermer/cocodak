@@ -8,7 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, get } from 'firebase/database';
+import { getDatabase, ref, get, set } from 'firebase/database';
+import { METHODS } from 'http';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -74,6 +75,50 @@ app.get('/contact', async (req, res) => {
     // const dishes = await fetchDishes();
     res.render('contact', {  });
   });
+
+
+  app.get('/api/winkelmand/toevoegen', async (req, res) => {
+    // const dishes = await fetchDishes();  
+    try {
+    const mandjeRef = ref(db, 'winkelmandje'); 
+
+    const snapshot = await get(mandjeRef);
+    const mandje = snapshot.exists() ? snapshot.val() : [];
+    
+    res.json({ mandje });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Fout bij ophalen van het mandje' });
+  }
+
+
+  });
+
+  app.post('/api/winkelmand', async (req, res) => {
+    const name = req.body.name;
+
+    if (!name) {
+        return res.status(400).json({ error: 'Naam van het gerecht is verplicht' });
+      }
+
+      try {
+        const mandjeRef = ref(db, 'winkelmandje');
+        const snapshot = await get(mandjeRef);
+        const mandje = snapshot.exists() ? snapshot.val() : [];
+   
+        mandje.push({ name }); 
+
+        
+    await set(mandjeRef, mandje)
+
+    // const dishes = await fetchDishes();
+} catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Fout bij toevoegen aan mandje' });
+  }
+  res.redirect('/menu');
+  });
+
 
 app.set('port', process.env.PORT || 8025)
 

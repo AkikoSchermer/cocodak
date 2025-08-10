@@ -5,6 +5,13 @@
 {% for dish in dishes %}
   {{ dish.name }}
   <img src="{{ dish.imagelink }}" alt="{{ dish.name }}" />
+  <form method="POST" action="/api/winkelmand">
+    <input
+      type="hidden"
+      name="name"
+      value="{{ dish.name }}" />
+    <button type="submit">Toevoegen aan winkelmand</button>
+  </form>
 {% endfor %}
 
 {% render 'partials/foot.liquid' %}
