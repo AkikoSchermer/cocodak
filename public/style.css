@@ -9,6 +9,56 @@ h1 {
     color:pink;
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-menu {
+    display: none;
+}
+
+.nav-list {
+    list-style: none;
+    width: 50%;
+    background-color: pink;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.hamburger-icoon {
+    height: 35px;
+    padding: 5px;
+}
+
+.close-icoon {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  padding: 5px;
+}
+
+#menu-toggle:checked ~ label .close-icoon {
+    display: block;
+}
+
+#menu-toggle:checked ~ .nav-menu {
+    display: block;
+}
+
+
+.logo {
+  position: absolute;
+  left: 40%;
+  top: 5px;
+}  
+
+ /* container gerechten */
+
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -41,3 +91,5 @@ h1 {
     object-fit: cover;
     padding: 5px;
 }
+
+ /* container gerechten */
