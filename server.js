@@ -51,21 +51,26 @@ async function fetchDishes() {
     console.log(dishes);
 
 const dishesArray = Object.values(dishes);
+const tags = dishesArray.map(dish => dish.tags);
+
+const uniqueTags = [...new Set(tags.flat())];
 
 // maak een lege array aan voor de tags
-const allTags = [];
+// const allTags = [];
 
-dishesArray.forEach(dish => {
-  if (dish.tags) {
-    dish.tags.forEach(tag =>{
-    allTags.push(tag);
-  });
-}
-});
+// dishesArray.forEach(dish => {
+//   if (dish.tags) {
+//     dish.tags.forEach(tag =>{
+//     allTags.push(tag);
+//   });
+// }
+// });
 
-console.log(allTags);
 
-return { dishes, tags: allTags };
+
+// console.log(allTags);
+
+return { dishes, tags: uniqueTags };
 } else {
   console.log('No data available');
   return null;
