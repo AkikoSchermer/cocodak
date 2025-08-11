@@ -170,6 +170,11 @@ app.get('/contact', async (req, res) => {
   res.redirect('/order');
   });
 
+  app.use((req, res) => {
+    res.status(404).send('404 - Pagina niet gevonden');
+  });
+  
+
 
 app.set('port', process.env.PORT || 8025)
 
