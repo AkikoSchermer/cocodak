@@ -9,7 +9,10 @@ const __dirname = path.dirname(__filename);
 
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get, set } from 'firebase/database';
-import { METHODS } from 'http';
+// import { Liquid } from 'liquidjs'; 
+// import { METHODS } from 'http';
+// import { arrayIncludes } from 'liquidjs/dist/render';
+
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -102,11 +105,20 @@ app.get('/contact', async (req, res) => {
   });
 
   app.get('/order', async (req, res) => {
+    const urlTags = req.query.tag;
     const data = await fetchDishes();
+
     if (data) {
-    res.render('order', { dishes: data.dishes, tags: data.tags });
+      let filteredDishes = Object.values (data.dishes);
+    
+    
+     if (urlTags) {
+      filteredDishes = filteredDishes.filter(dish => dish.tags && dish.tags.includes(urlTags));
+     }
+    
+    res.render('order', { dishes: filteredDishes, tags: data.tags, urlTags });
     } else {
-      res.render('order', {dishes: {}, tags: [] });
+      res.render('order', { dishes: [], tags: [], urlTags: null  });
     }
   });
 
