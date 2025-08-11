@@ -76,6 +76,25 @@ app.get('/contact', async (req, res) => {
     res.render('contact', {  });
   });
 
+  app.get('/winkelmand', async (req, res) => {
+    // const dishes = await fetchDishes();
+    try {
+      const mandjeRef = ref(db, 'winkelmandje'); 
+  
+      const snapshot = await get(mandjeRef);
+
+      const mandje = snapshot.exists() ? snapshot.val() : [];
+
+      const mandjeArray = Array.isArray(mandje) ? mandje : Object.values(mandje);
+
+    res.render('winkelmand', {mandje: mandjeArray });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Fout bij ophalen van het mandje' });
+  }
+
+  });
 
   app.get('/api/winkelmand/toevoegen', async (req, res) => {
     // const dishes = await fetchDishes();  

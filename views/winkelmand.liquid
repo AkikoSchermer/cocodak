@@ -1,0 +1,17 @@
+{% render 'partials/head.liquid' %}
+
+<h1>Basket</h1>
+
+
+{% if mandje and mandje.size > 0 %}
+  <ul>
+    {% for gerecht in mandje %}
+      <li>{{ gerecht.name }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Fill your basket</p>
+{% endif %}
+
+
+{% render 'partials/foot.liquid' %}
