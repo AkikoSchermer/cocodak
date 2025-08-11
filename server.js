@@ -76,13 +76,17 @@ app.get('/contact', async (req, res) => {
     res.render('contact', {  });
   });
 
+  app.get('/order', async (req, res) => {
+    const dishes = await fetchDishes();
+    res.render('order', { dishes });
+  });
+
   app.get('/winkelmand', async (req, res) => {
     // const dishes = await fetchDishes();
     try {
+      // data ophalen
       const mandjeRef = ref(db, 'winkelmandje'); 
-  
       const snapshot = await get(mandjeRef);
-
       const mandje = snapshot.exists() ? snapshot.val() : [];
 
       const mandjeArray = Array.isArray(mandje) ? mandje : Object.values(mandje);
@@ -100,7 +104,6 @@ app.get('/contact', async (req, res) => {
     // const dishes = await fetchDishes();  
     try {
     const mandjeRef = ref(db, 'winkelmandje'); 
-
     const snapshot = await get(mandjeRef);
     const mandje = snapshot.exists() ? snapshot.val() : [];
     
@@ -135,7 +138,7 @@ app.get('/contact', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Fout bij toevoegen aan mandje' });
   }
-  res.redirect('/menu');
+  res.redirect('/order');
   });
 
 

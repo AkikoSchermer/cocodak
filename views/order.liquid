@@ -4,19 +4,21 @@
 <ul class="container">
   {% for dish in dishes %}
     <li class="card">
-      <h3 class="dish-name">{{ dish.name }}</h3>
-      <p class="dish-description">{{ dish.description }}</p>
-      <p class="dish-price">{{ dish.price }}</p>
-      <img
-        src="{{ dish.imagelink }}"
-        alt="{{ dish.name }}"
-        class="dish-img" />
+      <div class="info">
+        <h3 class="dish-name">{{ dish.name }}</h3>
+        <p class="dish-description">{{ dish.description }}</p>
+        <p class="dish-price">{{ dish.price }}</p>
       <form method="POST" action="/api/winkelmand">
         <input
           type="hidden"
           name="name"
           value="{{ dish.name }}" />
         <button type="submit">Toevoegen aan winkelmand</button>
+        </div>
+        <img
+          src="{{ dish.imagelink }}"
+          alt="{{ dish.name }}"
+          class="dish-img" />
       </form>
     </li>
   {% endfor %}
