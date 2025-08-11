@@ -49,12 +49,32 @@ async function fetchDishes() {
   if (snapshot.exists()) {
     const dishes = snapshot.val();
     console.log(dishes);
-    return dishes;
-  } else {
-    console.log('No data available');
-    return null;
-  }
+
+const dishesArray = Object.values(dishes);
+
+// maak een lege array aan voor de tags
+const allTags = [];
+
+dishesArray.forEach(dish => {
+  if (dish.tags) {
+    dish.tags.forEach(tag =>{
+    allTags.push(tag);
+  });
 }
+});
+
+console.log(allTags);
+
+return { dishes, tags: allTags };
+} else {
+  console.log('No data available');
+  return null;
+}
+}
+
+fetchDishes();
+
+
 
 app.get('/', async (req, res) => {
     const dishes = await fetchDishes();
@@ -77,8 +97,12 @@ app.get('/contact', async (req, res) => {
   });
 
   app.get('/order', async (req, res) => {
-    const dishes = await fetchDishes();
-    res.render('order', { dishes });
+    const data = await fetchDishes();
+    if (data) {
+    res.render('order', { dishes: data.dishes, tags: data.tags });
+    } else {
+      res.render('order', {dishes: {}, tags: [] });
+    }
   });
 
   app.get('/winkelmand', async (req, res) => {

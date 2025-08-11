@@ -1,5 +1,10 @@
 {% render 'partials/head.liquid' %}
 
+<ul>
+{% for tag in tags %}
+   <li>{{tag }}</li>
+{% endfor %}
+</ul>
 
 <ul class="container">
   {% for dish in dishes %}
