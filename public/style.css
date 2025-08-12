@@ -138,6 +138,33 @@ ul.tags {
 /* filter tags gerechten */
 
 
+/* menu  */
+
+#menu {
+    display: none;
+}
+
+.plus {
+    display: none;
+}
+
+section {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+.section-dish {
+    display: none;
+}
+
+#menu:checked ~ .section-dish {
+    display: block;
+}
+
+
+/* menu  */
+
  /* container gerechten */
 
 .container {
