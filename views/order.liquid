@@ -1,8 +1,8 @@
 {% render 'partials/head.liquid' %}
 
-<ul>
+<ul class="tags">
 {% for tag in tags %}
-<li><a href="/order?tag={{ tag }}">{{ tag }}</a></li>
+<li class="tag"><a href="/order?tag={{ tag }}">{{ tag }}</a></li>
 {% endfor %}
 </ul>
 
