@@ -101,7 +101,7 @@ app.get('/about', async (req, res) => {
       const dishesArray = data && data.dishes ? Object.values(data.dishes) : [];
 
       const selectedNames = [
-        "Bibimbab Chicken",
+        "Bibimbab Vegetarian",
         "Dak Gomtang",
         "Korean Fried Chicken - Sweet & Sour Chili (5pcs)",
         "Japchae Chicken"

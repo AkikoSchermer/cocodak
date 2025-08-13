@@ -218,11 +218,27 @@ ul.tags {
 
 /* menu  */
 
+.menu-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
 
 
-.background-img {
+/* .dish-image {
     width: 100px;
     height: 100px;
+    object-fit: cover;
+
+} */
+
+.background-img {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
 }
 
@@ -249,11 +265,24 @@ section {
     display: none;
 }
 
-#menu:checked ~ .section-dish {
+/* #menu:checked ~ .section-dish {
     display: block;
 
-}
+} */
 
+.dish-wrapper {
+    position: relative;
+    margin: 10px 0;
+
+    }
+
+.menu-checkbox {
+    display: none;
+  }
+
+.menu-checkbox:checked + .menu-plus + .section-dish {
+    display: block;
+  }
 
 
 

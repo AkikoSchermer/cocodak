@@ -1,41 +1,72 @@
 {% render 'partials/head.liquid' %}
+{% comment %} <div class="menu-container">
+        {% for dish in dishes %}
+          <div class="dish-card">
+            <h3>{{ dish.name }}</h3>
+           <img
+                              src="{{ dish.imagelink }}"
+                              alt="{{ dish.name }}"
+                          class="dish-image"> 
+       <p>
+                                <strong>Prijs: €{{ dish.price }}</strong>
+                        </p> 
+          </div>
+        {% endfor %}
+      </div> 
 
-<div class="menu-container">
+      <div class="background-container">
+        <img
+          src="assets/test.png"
+          class="background-img"
+          alt="dishes">
+
+
+        <input type="checkbox" id="menu">
+        <label for="menu" class="menu-plus">
+          <img
+            src="/assets/plus.svg"
+            class="plus-icoon"
+            alt="-plus-icoon">
+        </label>
+
+        <section class="section-dish">
+        {% for dish in dishes %}
+          <div class="dish-card">
+            <h3>{{ dish.name }}</h3>
+            <p>{{ dish.description }}</p>
+        </section>
+        {% endfor %}
+</div> {% endcomment %}
+
+<div class="background-container">
+  <img
+    src="assets/test.png"
+    class="background-img"
+    alt="dishes">
+
   {% for dish in dishes %}
-    <div class="dish-card">
-      <h3>{{ dish.name }}</h3>
-      <img
-        src="{{ dish.imagelink }}"
-        alt="{{ dish.name }}"
-        class="dish-image">
-      <p>{{ dish.description }}</p>
-      <p>
-        <strong>Prijs: €{{ dish.price }}</strong>
-      </p>
+    <div class="dish-wrapper">
+      <input
+        type="checkbox"
+        id="menu{{ forloop.index }}"
+        class="menu-checkbox">
+      <label for="menu{{ forloop.index }}" class="menu-plus">
+        <img
+          src="/assets/plus.svg"
+          class="plus-icoon"
+          alt="+">
+      </label>
+
+      <section class="section-dish">
+        <h3>{{ dish.name }}</h3>
+        <p>{{ dish.description }}</p>
+        <p>
+          <strong>Prijs: €{{ dish.price }}</strong>
+        </p>
+      </section>
     </div>
   {% endfor %}
 </div>
 
 
-<div class="background-container">
-  <img
-    src="assets/bibimbap.jpeg"
-    class="background-img"
-    alt="dishes">
-
-
-  <input type="checkbox" id="menu">
-  <label for="menu" class="menu-plus">
-    <img
-      src="/assets/plus.svg"
-      class="plus-icoon"
-      alt="-plus-icoon">
-  </label>
-
-  <section class="section-dish">
-    <h3>Naam van het gerecht</h3>
-    <p>Beschrijving van het gerecht</p>
-  </section>
-
-</div>
 {% render 'partials/foot.liquid' %}
