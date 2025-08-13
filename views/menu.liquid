@@ -1,42 +1,43 @@
 {% render 'partials/head.liquid' %}
 {% comment %} <div class="menu-container">
-        {% for dish in dishes %}
-          <div class="dish-card">
-            <h3>{{ dish.name }}</h3>
-           <img
-                              src="{{ dish.imagelink }}"
-                              alt="{{ dish.name }}"
-                          class="dish-image"> 
-       <p>
-                                <strong>Prijs: €{{ dish.price }}</strong>
-                        </p> 
-          </div>
-        {% endfor %}
-      </div> 
+              {% for dish in dishes %}
+                <div class="dish-card">
+                  <h3>{{ dish.name }}</h3>
+                 <img
+                                    src="{{ dish.imagelink }}"
+                                    alt="{{ dish.name }}"
+                                class="dish-image"> 
+             <p>
+                                      <strong>Prijs: €{{ dish.price }}</strong>
+                              </p> 
+                </div>
+              {% endfor %}
+            </div> 
 
-      <div class="background-container">
-        <img
-          src="assets/test.png"
-          class="background-img"
-          alt="dishes">
+            <div class="background-container">
+              <img
+                src="assets/test.png"
+                class="background-img"
+                alt="dishes">
 
 
-        <input type="checkbox" id="menu">
-        <label for="menu" class="menu-plus">
-          <img
-            src="/assets/plus.svg"
-            class="plus-icoon"
-            alt="-plus-icoon">
-        </label>
+              <input type="checkbox" id="menu">
+              <label for="menu" class="menu-plus">
+                <img
+                  src="/assets/plus.svg"
+                  class="plus-icoon"
+                  alt="-plus-icoon">
+              </label>
 
-        <section class="section-dish">
-        {% for dish in dishes %}
-          <div class="dish-card">
-            <h3>{{ dish.name }}</h3>
-            <p>{{ dish.description }}</p>
-        </section>
-        {% endfor %}
+              <section class="section-dish">
+              {% for dish in dishes %}
+                <div class="dish-card">
+                  <h3>{{ dish.name }}</h3>
+                  <p>{{ dish.description }}</p>
+              </section>
+              {% endfor %}
 </div> {% endcomment %}
+
 
 <div class="background-container">
   <img
