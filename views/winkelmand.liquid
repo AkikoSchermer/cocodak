@@ -13,9 +13,15 @@
   <p>Fill your basket</p>
 {% endif %}
 
-<form method="POST" action="/">
-  <label for="message">Comments & Dietary Requests</label>
-  <textarea id="message" name="message"></textarea>
+{% if orderNote %}
+  <p>
+    <strong>Note:</strong>
+    {{ orderNote }}</p>
+{% endif %}
+
+<form method="POST" action="/api/winkelmand/order-note">
+  <label for="orderNote">Comments & Dietary Requests</label>
+  <textarea id="orderNote" name="orderNote">{{ orderNote }}</textarea>
   <button type="submit">Send</button>
 </form>
 

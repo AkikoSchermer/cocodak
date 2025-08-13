@@ -147,11 +147,16 @@ app.get('/contact', async (req, res) => {
       // data ophalen
       const mandjeRef = ref(db, 'winkelmandje'); 
       const snapshot = await get(mandjeRef);
-      const mandje = snapshot.exists() ? snapshot.val() : [];
+      // const mandje = snapshot.exists() ? snapshot.val() : [];
+      const mandjeData = snapshot.exists() ? snapshot.val() : { items: [], note: '' };
+    
+      // const mandjeArray = Array.isArray(mandje) ? mandje : Object.values(mandje);
+      
+      const mandjeArray = Array.isArray(mandjeData.items) ? mandjeData.items : [];
+      const orderNote = mandjeData.note || '';
 
-      const mandjeArray = Array.isArray(mandje) ? mandje : Object.values(mandje);
 
-    res.render('winkelmand', {mandje: mandjeArray });
+    res.render('winkelmand', {mandje: mandjeArray, orderNote });
 
   } catch (error) {
     console.error(error);
@@ -176,6 +181,34 @@ app.get('/contact', async (req, res) => {
 
   });
 
+app.post('/api/winkelmand/order-note' , async (req, res) => {
+  try {
+    let { orderNote } = req.body;
+    if (!orderNote) orderNote = '';
+
+    const mandjeRef = ref(db, 'winkelmandje'); 
+    const snapshot = await get(mandjeRef);
+    const mandjeData = snapshot.exists() ? snapshot.val() : { items: [] };
+
+    const items = Array.isArray(mandjeData) ? mandjeData : mandjeData.items || [];
+
+
+    const newMandje = {
+      items,
+      note: orderNote
+    };
+
+    // mandje.note = orderNote
+
+    await set(mandjeRef, newMandje);
+    res.redirect('/winkelmand');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Fout bij opslaan van de opmerking');
+  }
+
+  });
+
   app.post('/api/winkelmand', async (req, res) => {
     const name = req.body.name;
 
@@ -186,12 +219,21 @@ app.get('/contact', async (req, res) => {
       try {
         const mandjeRef = ref(db, 'winkelmandje');
         const snapshot = await get(mandjeRef);
-        const mandje = snapshot.exists() ? snapshot.val() : [];
+
+        const mandjeData = snapshot.exists() ? snapshot.val() : { items: [], note: '' };
+
+        const items = Array.isArray(mandjeData.items) ? mandjeData.items : [];
+
    
-        mandje.push({ name }); 
+        items.push({ name });
+
+        const newMandje = {
+          items,
+          note: mandjeData.note || ''
+        };
 
         
-    await set(mandjeRef, mandje)
+    await set(mandjeRef, newMandje)
 
     // const dishes = await fetchDishes();
 } catch (error) {
