@@ -1,18 +1,24 @@
 {% render 'partials/head.liquid' %}
 
-
-<input type="checkbox" id="menu">
-<label for="menu" class="">
+<div class="background-container">
   <img
-    src="/assets/plus.svg"
-    class="plus-icoon"
-    alt="-plus-icoon">
-</label>
-
-<section class="section-dish">
-  <h3>Naam van het gerecht</h3>
-  <p>Beschrijving van het gerecht</p>
-</section>
+    src="assets/bibimbap.jpeg"
+    class="background-img"
+    alt="dishes">
 
 
+  <input type="checkbox" id="menu">
+  <label for="menu" class="menu-plus">
+    <img
+      src="/assets/plus.svg"
+      class="plus-icoon"
+      alt="-plus-icoon">
+  </label>
+
+  <section class="section-dish">
+    <h3>Naam van het gerecht</h3>
+    <p>Beschrijving van het gerecht</p>
+  </section>
+
+</div>
 {% render 'partials/foot.liquid' %}

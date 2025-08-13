@@ -169,12 +169,28 @@ ul.tags {
 
 /* menu  */
 
+
+.background-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    z-index: -1;
+}
+
 #menu {
     display: none;
 }
 
 .plus {
     display: none;
+}
+
+.menu-plus {
+    /* margin-top: 50px;
+    margin-left: 160px; */
 }
 
 section {
@@ -189,6 +205,7 @@ section {
 
 #menu:checked ~ .section-dish {
     display: block;
+
 }
 
 
