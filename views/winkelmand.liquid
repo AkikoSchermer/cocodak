@@ -13,5 +13,11 @@
   <p>Fill your basket</p>
 {% endif %}
 
+<form method="POST" action="/">
+  <label for="message">Opmerkingen & dieeetwensen</label>
+  <textarea id="message" name="message"></textarea>
+  <button type="submit">Verstuur</button>
+</form>
+
 
 {% render 'partials/foot.liquid' %}
