@@ -13,10 +13,26 @@ h1 {
 header {
     display: flex;
     flex-direction: row;
-    /* padding: 5px; */
-    align-items: center; 
+    justify-content: space-between;
 }
 
+.header-left, .header-right {
+   display: flex;
+   align-items: center;
+   flex: 0;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    padding: 0;
+    margin: 0;
+}
 
 nav {
     display: flex;
@@ -24,6 +40,7 @@ nav {
     justify-content: center;
     align-items: center;
     width: 100%;
+    /* margin-top: 3px; */
     /* height: 100vh; */
 }
 
@@ -57,14 +74,6 @@ nav a:focus {
     display: none;
 }
 
-label {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 70px;
-}
 
 .hamburger-icoon {
     height: 30px;
@@ -83,7 +92,15 @@ label {
   /* margin: 5px; */
 }
 
-#menu-toggle:checked ~ label .close-icoon {
+.basket-icoon {
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    padding: 0;
+    margin-top: 3px;
+}
+
+#menu-toggle:checked ~ .header-left .close-icoon {
     display: block;
 }
 
@@ -94,19 +111,25 @@ label {
     width: 100%;
 }
 
-#menu-toggle:checked ~ label .hamburger-icoon {
+#menu-toggle:checked ~ .header-left .hamburger-icoon {
     display: none;
 }
 
-#menu-toggle:checked ~ label .logo {
+#menu-toggle:checked ~ .header-center .logo {
+    display: none;
+}
+
+#menu-toggle:checked ~ .header-right .basket-icoon {
     display: none;
 }
 
 .logo {
     width: 100px;
-    height: 30px;
+    height: 32px;
     object-fit: cover;
 }
+
+
 
 /* filter tags gerechten */
 
@@ -161,6 +184,8 @@ section {
 #menu:checked ~ .section-dish {
     display: block;
 }
+
+
 
 
 /* menu  */
