@@ -1,30 +1,36 @@
 {% render 'partials/head.liquid' %}
 
+
 <ul class="tags">
-{% for tag in tags %}
-<li class="tag"><a href="/order?tag={{ tag }}">{{ tag }}</a></li>
-{% endfor %}
+  {% for tag in tags %}
+    <li class="tag">
+      <a href="/order?tag={{ tag }}">{{ tag }}</a>
+    </li>
+  {% endfor %}
 </ul>
 
 <ul class="container">
   {% for dish in dishes %}
     <li class="card">
       <div class="info">
-        <h3 class="dish-name">{{ dish.name }}</h3>
-        <p class="dish-description">{{ dish.description }}</p>
-        <p class="dish-price">{{ dish.price }}</p>
-      <form method="POST" action="/api/winkelmand">
-        <input
-          type="hidden"
-          name="name"
-          value="{{ dish.name }}" />
-        <button type="submit">Toevoegen aan winkelmand</button>
+        <div class="text">
+          <h3 class="dish-name">{{ dish.name }}</h3>
+          <p class="dish-description">{{ dish.description }}</p>
+          <p class="dish-price">
+            €{{ dish.price }}</p>
+          <form method="POST" action="/api/winkelmand">
+            <input
+              type="hidden"
+              name="name"
+              value="{{ dish.name }}" />
+            <button type="submit">Toevoegen aan winkelmand</button>
+          </form>
         </div>
         <img
           src="{{ dish.imagelink }}"
           alt="{{ dish.name }}"
           class="dish-img" />
-      </form>
+      </div>
     </li>
   {% endfor %}
 </ul>
