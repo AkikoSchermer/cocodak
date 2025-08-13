@@ -160,31 +160,31 @@ header {
 .header-list {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 20px;
     list-style: none;
 }
 
-.nav-menu,
-.header-left,
-.header-center a .logo,
-.header-right a .basket-icoon
- {
-  display: none;
+  .header-desktop {
+    display: block;
 }
 
+.header-mobile {
+    display: none;
+}
 
 @media (max-width: 767px) {
-    .nav-menu,
-    .header-left,
-    .header-center a .logo,
-    .header-right a .basket-icoon
-     {
-      display: block;
+    .header-desktop {
+        display: none;
     }
-
-
+    .header-mobile {
+        display: block;
+    }
 }
+
+
+
+
 
 /* filter tags gerechten */
 
