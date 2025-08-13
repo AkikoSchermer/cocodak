@@ -94,10 +94,29 @@ app.get('/about', async (req, res) => {
     res.render('about', { });
   });
   
-app.get('/menu', async (req, res) => {
-    const dishes = await fetchDishes();
-    res.render('menu', { dishes });
+  app.get('/menu', async (req, res) => {
+    try {
+      const nameFilter = req.query.name;
+      const data = await fetchDishes(); // noem het even data
+      const dishesArray = data && data.dishes ? Object.values(data.dishes) : [];
+
+      const selectedNames = [
+        "Bibimbab Chicken",
+        "Dak Gomtang",
+        "Korean Fried Chicken - Sweet & Sour Chili (5pcs)",
+        "Japchae Chicken"
+      ]
+
+      const selectedDishes = dishesArray.filter(dish => selectedNames.includes(dish.name));
+
+  
+      res.render('menu', { dishes: selectedDishes });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Serverfout bij ophalen gerechten');
+    }
   });
+  
 
 app.get('/contact', async (req, res) => {
     // const dishes = await fetchDishes();
