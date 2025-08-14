@@ -1,0 +1,14 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--bg-primary-color);
+
+--bg-primary-color: #000000;
+--bg-secundary-color: #D9D9D9;
+
+--bg-card-color: #FFFFFF;
+
+--text-pirmary-color: white;
+--text-secundary-color: #FED000;
+
+
+}
