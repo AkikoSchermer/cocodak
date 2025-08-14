@@ -17,6 +17,7 @@ header {
     justify-content: space-between; 
 }
 
+
 .header-left, .header-right {
    display: flex;
    align-items: center;
@@ -97,7 +98,7 @@ nav a:focus {
   padding: 0;
   margin-top: 3px;
   height: 30px;
-  z-index: 5;
+  z-index: 2000;
   /* margin: 5px; */
 }
 
@@ -138,7 +139,7 @@ nav a:focus {
     height: 100vh;
     /* background-color: grey; */
     width: 100%;
-    z-index: 1;
+    z-index: 1000;
 }
 
 #menu-toggle:checked ~ .header-left .hamburger-icoon {
@@ -174,9 +175,19 @@ nav a:focus {
 }
 
 .header-desktop {
-    /* position: fixed;
+    position: fixed;
     top: 0px;
-    left: 0; */
+    left: 0;
+    width: 100%;
+    height: 50px;
+    /* background: lightgrey; */
+    z-index: 1000;
+}
+
+.header-mobile {
+    position: fixed;
+    top: 0px;
+    left: 0;
     width: 100%;
     height: 50px;
     /* background: lightgrey; */
