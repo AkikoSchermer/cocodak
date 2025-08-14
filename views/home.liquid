@@ -1,19 +1,43 @@
 {% render 'partials/head.liquid' %}
 
-  <main>
+{% comment %} <main> {% endcomment %}
 
-
-  {% comment %} <img
-                      src="assets/cocodak-foodstand.JPG"
-                      alt="background-picture-foodstand"
-              class="hero-img"> {% endcomment %}
+<section class="hero">
 
   <h2 class="title-homepage"></h2>
   <p class="text-homepage"></p>
+  <a href="/order" class="btn-hero">Order Now</a>
 
-  <a href="/order">order now</a>
+</section>
+
+<section class="home-about">
+  <div class="text">
+    <h2>About Cocodak</h2>
+    <p></p>
+    <a href="/about" class="btn"></a>
+  </div>
+</section>
+
+<section class="home-menu">
+  <div class="text">
+    <h2>Our Menu</h2>
+    <p></p>
+    <a href="/menu" class="btn">View Menu</a>
+  </div>
+</section>
 
 
-</main>
+<section class="home-contact">
+  <div class="text">
+    <h2>Contact</h2>
+    <p>Do you have questions or want to make a reservation? Get in touch with us via:</p>
+    <p>Phone number
+    </p>
+    <a href="/contact" class="btn">More Info</a>
+
+  </div></section>
+
+
+{% comment %} </main> {% endcomment %}
 
 {% render 'partials/foot.liquid' %}
