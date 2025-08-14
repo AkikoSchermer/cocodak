@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, get, set } from 'firebase/database';
+import { getDatabase, ref, get, set, push } from 'firebase/database';
 // import { Liquid } from 'liquidjs'; 
 // import { METHODS } from 'http';
 // import { arrayIncludes } from 'liquidjs/dist/render';
@@ -180,6 +180,10 @@ app.get('/contact', async (req, res) => {
 
 
   });
+  
+  app.get('/bestelling-is-geslaagd', (req, res) => {
+    res.render('bestelling-geslaagd'); 
+  });
 
 app.post('/api/winkelmand/order-note' , async (req, res) => {
   try {
@@ -208,6 +212,45 @@ app.post('/api/winkelmand/order-note' , async (req, res) => {
   }
 
   });
+
+  app.post('/api/winkelmand/place-order', async (req, res) => {
+    try {
+      const orderNote = req.body.orderNote || '';
+
+      const mandjeRef = ref(db, 'winkelmandje');
+      const snapshot = await get(mandjeRef);
+      // const mandje = snapshot.exists() ? snapshot.val() : [];
+      const mandjeData = snapshot.exists()
+      ? snapshot.val()
+      : { items: [], note: '' };
+
+      const items = Array.isArray(mandjeData.items) ? mandjeData.items : [];
+
+      if (items.length === 0) {
+        return res.redirect('/winkelmand');
+      }
+
+        const ordersRef = ref(db, 'orders');
+        const nieuweBestelling = {
+          items,
+          note: orderNote || mandjeData.note || '',
+          status: 'Wordt bereid',
+          geplaatstOp: new Date().toISOString()
+        };
+
+
+        await push(ordersRef, nieuweBestelling);
+
+        await set(mandjeRef, { items: [], note: '' });
+
+
+      res.redirect('/bestelling-is-geslaagd');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Fouut');
+    }
+    });
+
 
   app.post('/api/winkelmand', async (req, res) => {
     const name = req.body.name;
