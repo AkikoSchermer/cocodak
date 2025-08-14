@@ -5,6 +5,7 @@
 }
 
 
+
 h1 {
     color:pink;
 }
@@ -13,8 +14,7 @@ h1 {
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
- 
+    justify-content: space-between; 
 }
 
 .header-left, .header-right {
@@ -33,10 +33,14 @@ header {
     transform: translateX(-50%);
 }
 
-label {
+/* label {
     padding: 0;
     margin: 0;
-}
+} */
+
+/* .sticky-header {
+
+} */
 
 nav {
     display: flex;
@@ -87,14 +91,30 @@ nav a:focus {
 
 .close-icoon {
   display: none;
-  position: absolute;
+  position: fixed;
   right: 3px;
   top: 0px;
   padding: 0;
   margin-top: 3px;
   height: 30px;
+  z-index: 5;
   /* margin: 5px; */
 }
+
+/* .close-icoon:hover {
+   transform: scale(1.1);
+}
+
+.close-icoon:focus {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px
+} */
+
+/* .close-icoon:active {
+
+} */
 
 .basket-icoon {
     display: flex;
@@ -112,12 +132,14 @@ nav a:focus {
 
 #menu-toggle:checked ~ .nav-menu {
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
-    background-color: grey;
+    /* background-color: grey; */
     width: 100%;
+    z-index: 1;
 }
-
-
 
 #menu-toggle:checked ~ .header-left .hamburger-icoon {
     display: none;
@@ -133,10 +155,13 @@ nav a:focus {
 
 .logo {
     width: 100px;
-    height: 32px;
+    height: 36px;
     object-fit: cover;
 }
 
+.logo:hover {
+  transform: scale(1.2);
+}
 
 .logo-header {
     position: absolute;
@@ -148,12 +173,13 @@ nav a:focus {
     z-index: 11;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
+.header-desktop {
+    /* position: fixed;
+    top: 0px;
+    left: 0; */
     width: 100%;
-    background: lightgrey;
+    height: 50px;
+    /* background: lightgrey; */
     z-index: 1000;
 }
 
@@ -161,6 +187,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
     gap: 20px;
     list-style: none;
 }
@@ -182,7 +209,41 @@ header {
     }
 }
 
+/* * homepage* */
 
+.hero {
+    min-height: 70vh; 
+    width: 100%;
+    background-image: url('../assets/cocodak-foodstand.JPG');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+/* * homepage* */
+
+
+/* 
+* aboutpage * */
+
+.section {
+    display: flex;
+
+}
+
+.about-img {
+    width: 100%;
+}
+
+
+
+
+/* 
+* aboutpage * */
 
 
 
@@ -255,6 +316,7 @@ ul.tags {
   width: 30px;
   height: 30px;
   border: 1px solid black;
+  transition: transform 0.1s ease; 
 }
 
 .plus-icoon:hover {
@@ -262,12 +324,13 @@ ul.tags {
 }
 
 
-section {
+section.section-dish {
     border: 1px solid lightgrey;
     width: 200px;
     height: 150px;
     border-radius: 10px;
     padding: 10px 10px;
+    transition: max-height 0.4s ease-in-out;
 }
 
 .section-dish {
@@ -295,6 +358,7 @@ section {
 
 .menu-checkbox:checked + .menu-plus + .section-dish {
     display: block;
+    max-height: 200px;
     /* background: white; */
   }
 
