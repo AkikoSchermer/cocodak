@@ -1,43 +1,53 @@
 {% render 'partials/head.liquid' %}
 
-{% comment %} <main> {% endcomment %}
+<main>
 
-<section class="hero">
+  <section class="hero">
+    <h2 class="title-homepage"></h2>
+    <p class="text-homepage"></p>
+    <a href="/order" class="btn-hero">Order Now</a>
+  </section>
 
-  <h2 class="title-homepage"></h2>
-  <p class="text-homepage"></p>
-  <a href="/order" class="btn-hero">Order Now</a>
+  <section class="home-about">
+    <div class="text">
+      <h2>About Cocodak</h2>
+      <p>We are a small Korean traditional food stand located in Market 33.
+      </p>
+      <a href="/about" class="btn"></a>
+    </div>
+    <img
+      src="assets/chicken-1.JPG"
+      class="home-img"
+      alt="">
+  </section>
 
-</section>
-
-<section class="home-about">
-  <div class="text">
-    <h2>About Cocodak</h2>
-    <p></p>
-    <a href="/about" class="btn"></a>
-  </div>
-</section>
-
-<section class="home-menu">
-  <div class="text">
-    <h2>Our Menu</h2>
-    <p></p>
-    <a href="/menu" class="btn">View Menu</a>
-  </div>
-</section>
-
-
-<section class="home-contact">
-  <div class="text">
-    <h2>Contact</h2>
-    <p>Do you have questions or want to make a reservation? Get in touch with us via:</p>
-    <p>Phone number
-    </p>
-    <a href="/contact" class="btn">More Info</a>
-
-  </div></section>
+  <section class="home-menu">
+    <div class="text">
+      <h2>Our Menu</h2>
+      <p></p>
+      <a href="/menu" class="btn">View Menu</a>
+    </div>
+    <img
+      src="assets/test.png"
+      class="home-img"
+      alt="">
+  </section>
 
 
-{% comment %} </main> {% endcomment %}
+  <section class="home-contact">
+    <div class="text">
+      <h2>Contact</h2>
+      <p>Do you have questions or want to make a reservation? Get in touch with us via:</p>
+      <p>Phone number
+      </p>
+      <a href="/contact" class="btn">More Info</a>
+    </div>
+    <img
+      src="assets/chicken-closeup.JPG"
+      class="home-img"
+      alt=""></section>
+
+
+</main>
 
 {% render 'partials/foot.liquid' %}
