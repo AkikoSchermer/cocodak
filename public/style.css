@@ -57,6 +57,7 @@ nav {
 
 nav a {
     text-decoration: none;
+    color: var(--text-primary-color);
 }
 
 nav a:hover {
@@ -336,7 +337,7 @@ a.btn {
         /* height: auto;  */
         /* padding-top: 20px; */
         background-image: url('../assets/cocodak-foodstand.JPG');
-        background-position: center 10%;
+        background-position: center 5%;
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -421,10 +422,10 @@ a.btn {
 
   .hero {
       position: relative;
-      height: 70vh; 
+      height: 75vh; 
       width: 100%;
       background-image: url('../assets/cocodak-foodstand.JPG');
-      background-position: center 10%;
+      background-position: center 5%;
       background-size: cover;
       background-repeat: no-repeat;
     } 
@@ -438,10 +439,10 @@ a.btn {
 
   .hero {
     position: relative;
-    height: 70vh; 
+    height: 75vh; 
     width: 100%;
     background-image: url('../assets/cocodak-foodstand.JPG');
-    background-position: center 20%;
+    background-position: center 5%;
     background-size: cover;
     background-repeat: no-repeat;
   } 
@@ -469,6 +470,21 @@ a.btn {
 
 }
 
+@media (min-width: 1500px) {
+
+
+    .hero {
+      position: relative;
+      height: 75vh; 
+      width: 100%;
+      background-image: url('../assets/cocodak-foodstand.JPG');
+      background-position: center 5%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    } 
+
+}
+
 
 
 /* * homepage* */
@@ -479,35 +495,95 @@ a.btn {
 
 
 .about-banner {
-    padding: 3rem 1rem;
+    /* padding: 2rem 1rem; */
+    width: 100%;
+    min-height: 30vh;
     background-image: url('../assets/chicken-2.JPG');
-    background-position: center;
+    background-position: center 50%;
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--text-primary-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
 }
 
-.about-title {
+
+
+.about-banner {
     text-align: center;
 }
 
 .about-img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
+    margin-top: 20px;
 }
 
 .about-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     gap: 20px;
+    padding: 40px;
+    /* margin: 60px 20px; */
+
+}
+
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+    padding: 20px;
+}
+
+
+@media (min-width: 768px) {
+
+    .about-banner {
+        padding: 2rem 1rem;
+        min-height: 40vh;
+    }
+
+    .about-section {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 40px;
+        padding: 20px;
+      }
+
+      .about-text { 
+        align-items: flex-start;
+        text-align: left;
+      }
+
+    /* .about-section {
+        flex-direction: column;
+        gap: 15px;
+    } */
+
+    .about-img {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .about-img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
 }
 
 /* 
@@ -528,8 +604,10 @@ ul.tags {
     width: 300px;
     scroll-snap-type: x mandatory;
     overflow-x: auto ;
-    border: 1px solid black;
+    border: 1px solid white;;
     gap: 70px;
+    margin: 20px 10px;
+    padding: 20px;
     
 }
 
@@ -546,6 +624,8 @@ ul.tags {
 .tag a {
     text-decoration: none;
     color: var(--text-primary-color);
+    padding-bottom: 5px; 
+
 }
 
 .tag a:hover {
@@ -661,14 +741,19 @@ section.section-dish {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 10px;
     margin: 0 auto;
+    padding: 5px;;
     max-width: 1100px; 
+    background-color: var(--bg-order-color);
 }
 
 .card {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 1px solid;
+    border: 1px solid lightgrey;
+    color:var(--text-primary-btn);
+    background-color: var(--bg-card-color);
+    border-radius: 10px;
     width: 100%;
     height:  auto;
     gap: 10px;
@@ -683,6 +768,7 @@ section.section-dish {
     align-items: center;
 }
 
+
 .dish-description {
     width: fit-content;
 }
@@ -692,6 +778,17 @@ section.section-dish {
     height: 100px;
     object-fit: cover;
     padding: 5px;
+}
+
+button.dish-button {
+    padding: 8px 16px; 
+    /* background-color: var(--text-secundary-color); */
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+}
+
+.dish-button:hover {
+    background-color: #F8D845;
 }
 
  /* container gerechten */
