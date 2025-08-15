@@ -1,5 +1,11 @@
 {% render 'partials/head.liquid' %}
 
+<section class="about-banner">
+
+  <h2 class="about-title">About
+  </h2>
+
+</section>
 
 <ul class="tags">
   {% for tag in tags %}
@@ -13,7 +19,7 @@
   {% for dish in dishes %}
     <li class="card">
       <div class="info">
-        <div class="text">
+        <div class="text-dish">
           <h3 class="dish-name">{{ dish.name }}</h3>
           <p class="dish-description">{{ dish.description }}</p>
           <p class="dish-price">
@@ -34,5 +40,6 @@
     </li>
   {% endfor %}
 </ul>
+
 
 {% render 'partials/foot.liquid' %}
