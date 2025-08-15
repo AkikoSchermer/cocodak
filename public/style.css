@@ -239,6 +239,33 @@ main {
     background-repeat: no-repeat;
 }
 
+.hero-content {
+    position: absolute;
+    left: 30px;
+    bottom: 300px;
+}
+
+a.btn-hero {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--text-secundary-color);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-primary-btn);
+}
+
+a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--text-secundary-color);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-primary-btn);
+    margin: 20px;
+}
+
+
+
 .text {
     text-align: center;
     width: 250px;
@@ -267,25 +294,29 @@ main {
     .home-contact {
     display: flex;
     flex-direction: row;
-    /* align-items: center; */
-    /* gap: 20px; */
+    justify-content: space-between;
+
     }
 
-    .home-menu {
+    .home-menu{
         display: flex;
         flex-direction: row-reverse;
+        justify-content: flex-end;
     }
 
     .text {
         text-align: center;
-        margin: 20px;
+        margin-left: 30px;
+        width: 35%;
     
     }
 
     .home-img {
-        width: 300px;
-        /* height: 200px; */
+        width: 65%;
+   
     }
+
+
 
 }
 

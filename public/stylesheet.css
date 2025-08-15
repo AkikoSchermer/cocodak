@@ -1,14 +1,15 @@
 body {
     font-family: "Montserrat", sans-serif;
     background-color: var(--bg-primary-color);
-    color: var(--text-pirmary-color);
+    color: var(--text-primary-color);
 
 --bg-primary-color: #000000;
 --bg-secundary-color: #D9D9D9;
 
 --bg-card-color: #FFFFFF;
+--text-primary-btn: #000000;
 
---text-pirmary-color: white;
+--text-primary-color: white;
 --text-secundary-color: #FED000;
 
 
