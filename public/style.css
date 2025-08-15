@@ -241,12 +241,15 @@ main {
 
 .text {
     text-align: center;
+    width: 250px;
+    margin: 20px;
 }
 
 .home-img {
-    width: 400px;
-    height: 200px;
+    width: 100%;
     object-fit: cover;
+    /* border: 1px solid lightgrey; */
+    /* border-radius: 8px; */
 }
 
 
@@ -274,12 +277,14 @@ main {
     }
 
     .text {
-        text-align: left;
-        width: 500px;
+        text-align: center;
+        margin: 20px;
+    
     }
 
     .home-img {
-        /* width: 100%; */
+        width: 300px;
+        /* height: 200px; */
     }
 
 }
