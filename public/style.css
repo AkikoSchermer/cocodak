@@ -222,7 +222,7 @@ nav a:focus {
 
 /* * homepage* */
 
-main {
+.home {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -267,9 +267,12 @@ a.btn {
 
 
 .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    width: 250px;
-    margin: 20px;
+    gap: 10px;
+    width: 350px;
 }
 
 .home-img {
@@ -295,7 +298,6 @@ a.btn {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     }
 
     .home-menu{
@@ -305,6 +307,8 @@ a.btn {
     }
 
     .text {
+        justify-content: flex-end;
+        align-items: center;
         text-align: center;
         margin-left: 30px;
         width: 35%;
@@ -338,29 +342,41 @@ a.btn {
 
 /* filter tags gerechten */
 
+
 ul.tags {
     display: flex;
     flex-direction: row;
+    margin: 50px auto 0 auto;
     /* flex-direction: column;
     justify-content: center; */
-    margin: 0 auto ;
+    /* margin: 0 auto ; */
     width: 300px;
     scroll-snap-type: x mandatory;
     overflow-x: auto ;
     border: 1px solid black;
+    gap: 70px;
+    
 }
 
 .tag {
+    gap: 20px;
     flex: 0 0 auto;
     text-align: center;
     list-style: none;
     width: 200px;
     scroll-snap-align: center;
+    /* margin-bottom: 30px; */
 }
 
 .tag a {
     text-decoration: none;
+    color: var(--text-primary-color);
 }
+
+.tag a:hover {
+    color: var(--text-secundary-color);
+}
+
 
 
 /* filter tags gerechten */
