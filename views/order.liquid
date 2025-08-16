@@ -7,6 +7,7 @@
 
 </section>
 
+
 <ul class="tags">
   {% for tag in tags %}
     <li class="tag">
@@ -15,31 +16,38 @@
   {% endfor %}
 </ul>
 
-<ul class="container">
-  {% for dish in dishes %}
-    <li class="card">
-      <div class="info">
-        <div class="text-dish">
-          <h3 class="dish-name">{{ dish.name }}</h3>
-          <p class="dish-description">{{ dish.description }}</p>
-          <p class="dish-price">
-            €{{ dish.price }}</p>
-          <form method="POST" action="/api/winkelmand">
-            <input
-              type="hidden"
-              name="name"
-              value="{{ dish.name }}" />
-            <button type="submit" class="dish-button">Toevoegen aan winkelmand</button>
-          </form>
-        </div>
-        <img
-          src="{{ dish.imagelink }}"
-          alt="{{ dish.name }}"
-          class="dish-img" />
-      </div>
-    </li>
-  {% endfor %}
-</ul>
+<section class="container-cards">
 
+  <ul class="container">
+    {% for dish in dishes %}
+      <li class="card">
+        <div class="info">
+          <div class="text-dish">
+            <h3 class="dish-name">{{ dish.name }}</h3>
+            <p class="dish-description">{{ dish.description }}</p>
+            <p class="dish-price">
+              €{{ dish.price }}</p>
+            <form method="POST" action="/api/winkelmand">
+              <input
+                type="hidden"
+                name="name"
+                value="{{ dish.name }}" />
+              <button type="submit" class="dish-button">Toevoegen aan winkelmand</button>
+            </form>
+          </div>
+          <img
+            class="dish-img lazy"
+            alt="{{ dish.name }}"
+            {% if forloop.index <= 4 %}
+            src="{{ dish.imagelink }}"
+            {% else %}
+            data-src="{{ dish.imagelink }}"
+            {% endif %} />
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+</section>
 
 {% render 'partials/foot.liquid' %}
