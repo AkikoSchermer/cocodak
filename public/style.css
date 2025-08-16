@@ -254,7 +254,7 @@ main {
     left: 0; 
     right: 0; 
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); 
+    /* background-color: rgba(0, 0, 0, 0.1);  */
 }
 
 .hero-content {
@@ -262,9 +262,9 @@ main {
     flex-direction: column;
     position: absolute;
     gap: 10px;
-    left: 30px;
-    bottom: 80px;
-
+    left: 10px;
+    bottom: 50px;
+    /* opacity: 1; */
 }
 
 a.btn-hero {
@@ -333,7 +333,7 @@ a.btn {
     .hero {
         position: relative;
         width: 100%;
-        height: 70vh;
+        height: 60vh;
         /* height: auto;  */
         /* padding-top: 20px; */
         background-image: url('../assets/cocodak-foodstand.JPG');
@@ -347,10 +347,10 @@ a.btn {
     .home-contact,
     .home-menu {
         flex-direction: row;
-        justify-content: space-between;
+        /* justify-content: space-between;
         align-items: center;
         margin: 30px 0;
-        width: 100%;
+        width: 100%; */
         /* margin-left: auto;
         margin-right: auto; */
         /* padding: 0 20px; */
@@ -385,10 +385,10 @@ a.btn {
     } */
 
     .text {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
         text-align: center;
         /* margin-left: 30px; */
         flex: 1;
@@ -397,12 +397,12 @@ a.btn {
 
     .home-img {
         flex: 1;
-        max-width: 100%;
+        max-width: 60%;
         width: auto;
         max-height: 400px;
         margin: 0;
         display: block;
-        object-fit: contain
+        object-fit: cover;
     }
 
 }
@@ -422,10 +422,10 @@ a.btn {
 
   .hero {
       position: relative;
-      height: 75vh; 
+      height:  65vh; 
       width: 100%;
       background-image: url('../assets/cocodak-foodstand.JPG');
-      background-position: center 5%;
+      background-position: center 5% ;
       background-size: cover;
       background-repeat: no-repeat;
     } 
@@ -439,10 +439,10 @@ a.btn {
 
   .hero {
     position: relative;
-    height: 75vh; 
+    height:  70vh; 
     width: 100%;
     background-image: url('../assets/cocodak-foodstand.JPG');
-    background-position: center 5%;
+    background-position:  center 5% ;
     background-size: cover;
     background-repeat: no-repeat;
   } 
@@ -454,19 +454,6 @@ a.btn {
         margin: 30px 0;
         width: 100%
     }
-/* 
-    .hero {
-      position: relative;
-      height: 70vh; 
-      width: 100%;
-      background-position: center 15%;
-      background-image: url('../assets/cocodak-foodstand.JPG');
-      background-position: center 10%;
-      background-size: cover;
-      background-repeat: no-repeat;
-    } */
-
-
 
 }
 
@@ -476,9 +463,9 @@ a.btn {
     .hero {
       position: relative;
       height: 75vh; 
-      width: 100%;
+      max-width: 100%;
       background-image: url('../assets/cocodak-foodstand.JPG');
-      background-position: center 5%;
+      background-position:  center 5% ;
       background-size: cover;
       background-repeat: no-repeat;
     } 
@@ -736,6 +723,11 @@ section.section-dish {
 
  /* container gerechten */
 
+ .container-cards {
+    background-color: var(--bg-order-color);
+    padding: 5px;;
+ }
+
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -743,7 +735,7 @@ section.section-dish {
     margin: 0 auto;
     padding: 5px;;
     max-width: 1100px; 
-    background-color: var(--bg-order-color);
+    /* background-color: var(--bg-order-color); */
 }
 
 .card {
