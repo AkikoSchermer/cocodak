@@ -36,12 +36,13 @@
             </form>
           </div>
           <img
-            class="dish-img lazy"
+            class="dish-img {% if forloop.index > 4 %}lazy{% endif %}"
             alt="{{ dish.name }}"
             {% if forloop.index <= 4 %}
             src="{{ dish.imagelink }}"
             {% else %}
             data-src="{{ dish.imagelink }}"
+            loading="lazy"
             {% endif %} />
         </div>
       </li>
