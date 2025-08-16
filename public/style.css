@@ -7,7 +7,7 @@
 
 
 h1 {
-    color:pink;
+    /* color:pink; */
 }
 
 
@@ -55,16 +55,20 @@ nav {
     /* height: 100vh; */
 }
 
-nav a {
+.nav-list a {
     text-decoration: none;
     color: var(--text-primary-color);
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
 }
 
-nav a:hover {
-    color: black;
+.nav-list a:hover {
+    color: var(--text-secundary-color);
+    z-index: 1;
 }
 
-nav a:focus {
+.nav-list a:focus {
     border: 1px solid black;
 }
 
@@ -79,7 +83,30 @@ nav a:focus {
     align-items: center;
     list-style: none;
     width: 100%;
-    height: 100vw;
+    height: 100vh;
+    background-image: url('../assets/Chicken-1.jpg');
+    background-size: cover;
+    background-position: center 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    gap: 20px;
+}
+
+/* .nav-list::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.1); 
+    z-index: 0;
+} */
+
+.nav-list::after {
+    content:"";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent 80%);
+    z-index: 0;
+    pointer-events: none; 
 }
 
 #menu-toggle {
