@@ -30,6 +30,8 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const db = getDatabase(firebaseApp);
 
+// console.log("Database URL:", process.env.FIREBASE_DATABASE_URL);
+
 const app = express();
 
 const engine = new Liquid({
@@ -85,6 +87,11 @@ fetchDishes();
 
 
 app.get('/', async (req, res) => {
+    const dishes = await fetchDishes();
+    res.render('home', { dishes });
+  });
+
+  app.get('/home', async (req, res) => {
     const dishes = await fetchDishes();
     res.render('home', { dishes });
   });
@@ -293,6 +300,10 @@ app.post('/api/winkelmand/order-note' , async (req, res) => {
 
 
 app.set('port', process.env.PORT || 8025)
+// const port = app.get('port');
+// app.listen(port, () => {
+//   console.log(`Server running on port ${port}`);
+// });
 
 // Start Express op, haal daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
