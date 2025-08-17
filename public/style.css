@@ -690,43 +690,76 @@ a.btn-hero:hover {
 ul.tags {
     display: flex;
     flex-direction: row;
-    margin: 50px auto 0 auto;
+    /* margin: 50px auto 0 auto; */
     /* flex-direction: column;
     justify-content: center; */
     /* margin: 0 auto ; */
-    width: 300px;
+    width: 100%;
     scroll-snap-type: x mandatory;
     overflow-x: auto ;
-    border: 1px solid white;;
-    gap: 70px;
+    border: 1px solid var(--text-secundary-color);
+    gap: 10px;
     margin: 20px 10px;
-    padding: 20px;
+    padding: 5px 5px;
     
 }
 
 .tag {
-    gap: 20px;
+    gap: 10px;
     flex: 0 0 auto;
-    text-align: center;
+    /* text-align: center; */
     list-style: none;
-    width: 200px;
+    /* width: 300px; */
     scroll-snap-align: center;
     /* margin-bottom: 30px; */
 }
 
 .tag a {
     text-decoration: none;
-    color: var(--text-primary-color);
-    padding-bottom: 5px; 
+    /* color: var(--text-primary-color); */
+    /* padding-bottom: 5px;  */
 
 }
 
 .tag a:hover {
     color: var(--text-secundary-color);
+    background-color: var(--bg-primary-color);
+    border: 1px solid var(--text-secundary-color);
+}
+
+.tag-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--bg-primary-btn);
+    border-radius: 10px;
+    /* border: 1px solid grey; */
+    text-decoration: none;
+    color: var(--text-primary-btn);
+    line-height: 1.6em
+}
+
+@media (max-width: 767px) {
+    ul.tags {
+       width: 100%;
+       border: none;
+    
+    }
+  
 }
 
 
-
+@media (min-width: 767px) {
+    ul.tags {
+        display: flex;
+        justify-content:flex-start;
+        align-items: flex-start;
+       /* width: 120px; */
+       border: none;
+       overflow-x: visible;  
+    
+    }
+  
+}
 /* filter tags gerechten */
 
 
@@ -879,10 +912,11 @@ section.section-dish {
 }
 
 button.dish-button {
-    padding: 8px 16px; 
+    padding: 10px 20px; 
     background-color: var(--bg-primary-btn);
     border-radius: 10px;
-    border: 1px solid lightgrey;
+    border:  none;
+    font-family: inherit;
 }
 
 .dish-button:hover {
@@ -928,7 +962,9 @@ button.dish-button {
 
 
  button.save-note,  
- button.place-order {
+ button.place-order,
+ input[type="submit"] {
+  font-family: inherit;
   display: inline-block;
   padding: 10px 20px;
   width: 150px;
