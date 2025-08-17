@@ -179,9 +179,13 @@ app.get('/contact', async (req, res) => {
     try {
     const mandjeRef = ref(db, 'winkelmandje'); 
     const snapshot = await get(mandjeRef);
-    const mandje = snapshot.exists() ? snapshot.val() : [];
+
+    const mandjeData = snapshot.exists() ? snapshot.val() : { items: [], note: '' };
+res.json({ mandje: mandjeData.items, note: mandjeData.note });
+
+    // const mandje = snapshot.exists() ? snapshot.val() : [];
     
-    res.json({ mandje });
+    // res.json({ mandje });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Fout bij ophalen van het mandje' });
@@ -299,7 +303,7 @@ app.post('/api/winkelmand/order-note' , async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Fout bij toevoegen aan mandje' });
   }
-  res.redirect('/order');
+  res.redirect('/winkelmand');
   });
 
   app.use((req, res) => {

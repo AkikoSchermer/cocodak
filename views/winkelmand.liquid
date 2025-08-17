@@ -1,34 +1,41 @@
 {% render 'partials/head.liquid' %}
 
+<main class="winkelmand-pagina">
 
-<h1>Basket</h1>
+  <h2>Basket</h2>
 
 
-{% if mandje and mandje.size > 0 %}
-  <ul>
-    {% for gerecht in mandje %}
-      <li>{{ gerecht.name }} x {{ gerecht.quantity | default: 1 }}</li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>Fill your basket</p>
-{% endif %}
+  {% if mandje and mandje.size > 0 %}
+    <ul class="mandje">
+      {% for gerecht in mandje %}
+        <a href="/order">
+          <li>{{ gerecht.name }} x {{ gerecht.quantity | default: 1 }}</li>
+        </a>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Fill your basket</p>
+  {% endif %}
 
-{% if orderNote %}
-  <p>
-    <strong>Note:</strong>
-    {{ orderNote }}</p>
-{% endif %}
+  {% if orderNote %}
+    <p>
+      <strong>Note:</strong>
+      {{ orderNote }}</p>
+  {% endif %}
 
-<form method="POST" action="/api/winkelmand/order-note">
-  <label for="orderNote">Comments & Dietary Requests</label>
-  <textarea id="orderNote" name="orderNote">{{ orderNote }}</textarea>
-  <button type="submit">save note</button>
-</form>
+  <form
+    method="POST"
+    action="/api/winkelmand/order-note"
+    class="order-note-form">
+    <label for="orderNote">Comments & Dietary Requests</label>
+    <textarea id="orderNote" name="orderNote">{{ orderNote }}</textarea>
+    <button type="submit" class="save-note">Save note</button>
+  </form>
 
-<form method="post" action="/api/winkelmand/place-order">
-  <button type="submit">Place Order</button>
-</form>
+  <form method="post" action="/api/winkelmand/place-order">
+    <button type="submit" class="place-order">Place Order</button>
+  </form>
 
+</main>
 
 {% render 'partials/foot.liquid' %}
