@@ -27,7 +27,10 @@
             <p class="dish-description">{{ dish.description }}</p>
             <p class="dish-price">
               €{{ dish.price }}</p>
-            <form method="POST" action="/api/winkelmand">
+            <form
+              method="POST"
+              action="/api/winkelmand"
+              class="order-button">
               <input
                 type="hidden"
                 name="name"
@@ -38,6 +41,8 @@
           <img
             class="dish-img {% if forloop.index > 4 %}lazy{% endif %}"
             alt="{{ dish.name }}"
+            width="300"
+            height="200"
             {% if forloop.index <= 4 %}
             src="{{ dish.imagelink }}"
             {% else %}
