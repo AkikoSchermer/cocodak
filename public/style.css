@@ -382,7 +382,11 @@ a.btn {
     margin: 20px;
 }
 
-
+a.btn:hover,
+a.btn-hero:hover {
+    /* background-color: #FFC300; */
+    background-color: #F8D845;
+}
 
 .text {
     display: flex;
@@ -993,5 +997,5 @@ button.place-order:focus {
 
   .order-btn:hover {
     /* background-color: #FFC300; */
- background-color: #F8D845;
+   background-color: #F8D845;
   }
