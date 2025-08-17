@@ -869,7 +869,7 @@ section.section-dish {
 
 button.dish-button {
     padding: 8px 16px; 
-    /* background-color: var(--text-secundary-color); */
+    background-color: var(--bg-primary-btn);
     border-radius: 10px;
     border: 1px solid lightgrey;
 }
@@ -879,3 +879,87 @@ button.dish-button {
 }
 
  /* container gerechten */
+
+ /* contact */
+
+  /* contact */
+
+ /* winkelmand */
+
+ .winkelmand-pagina {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+    margin-top: 60px;
+    margin-left: 10px;
+    /* margin: 0 auto; */
+ }
+
+ .mandje {
+    width: 100%; 
+    list-style: none;
+    text-decoration: none;
+ }
+
+ .mandje a  {
+    text-decoration: none;
+    color: var(--text-primary-color);
+ }
+
+.order-note-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+ }
+
+
+ button.save-note,  
+ button.place-order {
+  display: inline-block;
+  padding: 10px 20px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  background-color: var(--text-secundary-color);
+  color: var(--text-primary-btn);
+  border-radius: 10px;
+  border: none;
+  gap: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  /* margin: 20px; */
+ }
+
+button.save-note:hover, 
+button.place-order:hover {
+    /* background-color: #F8D845; */
+    background-color: #FFC300;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
+button.save-note:active,
+button.place-order:active {
+    background-color: #FFB800;
+    transform: translateY(1px);
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+button.save-note:focus,
+button.place-order:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
+}
+
+@media (max-width: 767px) {
+    .winkelmand-pagina {
+       display: flex;
+       flex-direction: column;
+    }
+  
+}
+
+  /* winkelmand */
