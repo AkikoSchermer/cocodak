@@ -783,14 +783,15 @@ ul.tags {
 
 .background-container {
     position: relative;
-    background-image: url('../assets/test.png');
+    background-image: url('../assets/dishes.png');
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-    width: 300px;
-    object-fit: cover; 
-    height: 300px; 
-    z-index: 0;
+    width: 100%;
+    max-width: 300px;
+    /* margin: 0 auto; */
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
 }
 
 
@@ -817,9 +818,9 @@ ul.tags {
   top: 5px;
   left: 50%;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  /* border: 1px solid black; */
   transition: transform 0.1s ease; 
   z-index: 2;
   background-color: var(--text-secundary-color);
@@ -829,17 +830,48 @@ ul.tags {
   transform: scale(1.2);
 }
 
+.menu-plus {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 10; 
+}
+
+.plus-1 {
+    position: absolute;
+    top: 10%;
+    left: 20%
+}    
+
+.plus-2 {
+    position: absolute;
+    top: 10%;
+    left: 100%;
+}
+
+.plus-3 {
+    position: absolute;
+    top: 10%;
+    right: 100%;
+}
+
+.plus-4 {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+}
 
 section.section-dish {
     position: absolute;
-    top: 5px;
+    top: 40px;
     left: 50%;
     border: 1px solid lightgrey;
     width: 200px;
-    height: 150px;
+    /* height: 150px; */
     border-radius: 10px;
-    padding: 10px 10px;
-    margin-top: 20px;
+    padding: 10px ;
+    /* margin-top: 20px; */
     transition: max-height 0.4s ease-in-out;
     z-index: 2;
 }
@@ -853,15 +885,16 @@ section.section-dish {
 
 } */
 
-.dish-wrapper {
+/* .dish-wrapper {
     position: relative;
     margin: 50px 0;
     /* background-color: #F8D845;
     border: 1px solid yellow; */
-    z-index: 1;
-    width: 20px;
-    height: 20px;
-    }
+/* 300px;    z-index: 1;
+    width: 300px;
+    height: 
+    } */ 
+
 
 .menu-description {
     width: fit-content;
@@ -878,14 +911,18 @@ section.section-dish {
     /* background: white; */
   }
 
-
-
 .menu-checkbox:checked + .menu-plus .plus-icoon {
    transform: rotate(45deg);
   }
 
   
+  @media (max-width: 480px) {
+    .section-dish p,
+    .section-dish strong {
+        display: none;
+    }
 
+  }
 
 
 /* menu  */

@@ -18,7 +18,7 @@
         type="checkbox"
         id="menu{{ forloop.index }}"
         class="menu-checkbox">
-      <label for="menu{{ forloop.index }}" class="menu-plus">
+      <label for="menu{{ forloop.index }}" class="menu-plus plus-{{ forloop.index }}">
         <img
           src="/assets/plus.svg"
           class="plus-icoon"
@@ -29,7 +29,7 @@
         <h3>{{ dish.name }}</h3>
         <p class="menu-description">{{ dish.description }}</p>
         <p>
-          <strong>Prijs: €{{ dish.price }}</strong>
+          <strong>Price €{{ dish.price }}</strong>
         </p>
       </section>
     </div>
