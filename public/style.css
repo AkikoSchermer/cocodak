@@ -765,6 +765,9 @@ ul.tags {
 
 /* menu  */
 
+
+
+
 .menu-container{
     display: flex;
     flex-direction: row;
@@ -840,26 +843,26 @@ ul.tags {
 
 .plus-1 {
     position: absolute;
-    top: 10%;
-    left: 20%
+    top: 50%;
+    left: 40%
 }    
 
 .plus-2 {
     position: absolute;
     top: 10%;
-    left: 100%;
+    left: 15%;
 }
 
 .plus-3 {
     position: absolute;
     top: 10%;
-    right: 100%;
+    right: 10%;
 }
 
 .plus-4 {
     position: absolute;
     top: 10%;
-    right: 10%;
+    right: 40%;
 }
 
 section.section-dish {
@@ -867,13 +870,17 @@ section.section-dish {
     top: 40px;
     left: 50%;
     border: 1px solid lightgrey;
+    background-color:var(--text-primary-btn);
+    color: var(--text-primary-color);
     width: 200px;
+    transform: translateX(-50%);
+    /* font-size: 16px; */
     /* height: 150px; */
     border-radius: 10px;
     padding: 10px ;
     /* margin-top: 20px; */
     transition: max-height 0.4s ease-in-out;
-    z-index: 2;
+    z-index: 5;
 }
 
 .section-dish {
@@ -926,6 +933,79 @@ section.section-dish {
 
 
 /* menu  */
+
+
+/* contact */
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 40px;
+}
+
+.contact-text  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 350px;
+    padding:20px;
+    gap: 30px;
+    list-style: none;
+    text-decoration: none;
+    /* padding: 20px; */
+}
+
+a.instagram  {
+    text-decoration: none;
+    color: var(--text-secundary-color);
+}
+
+.contact-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+
+    .contact-section {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        gap: 40px;
+        padding: 20px;
+      }
+
+      .contact-text { 
+        align-items: flex-start;
+        text-align: left;
+      }
+
+    /* .about-section {
+        flex-direction: column;
+        gap: 15px;
+    } */
+
+    .contact-img {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .contact-img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+}
 
  /* container gerechten */
 
