@@ -751,8 +751,8 @@ ul.tags {
 @media (min-width: 767px) {
     ul.tags {
         display: flex;
-        justify-content:flex-start;
-        align-items: flex-start;
+        justify-content:center;
+        align-items: center;
        /* width: 120px; */
        border: none;
        overflow-x: visible;  
