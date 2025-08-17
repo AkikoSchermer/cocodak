@@ -7,7 +7,7 @@
 {% if mandje and mandje.size > 0 %}
   <ul>
     {% for gerecht in mandje %}
-      <li>{{ gerecht.name }}</li>
+      <li>{{ gerecht.name }} x {{ gerecht.quantity | default: 1 }}</li>
     {% endfor %}
   </ul>
 {% else %}
@@ -20,18 +20,15 @@
     {{ orderNote }}</p>
 {% endif %}
 
-<form method="POST" action="/api/winkelmand/place-order">
+<form method="POST" action="/api/winkelmand/order-note">
   <label for="orderNote">Comments & Dietary Requests</label>
   <textarea id="orderNote" name="orderNote">{{ orderNote }}</textarea>
-  <button type="submit">Place-order</button></form>
+  <button type="submit">save note</button>
+</form>
 
-{% comment %} <form method="post" action="">
-              <input
-                type="hidden"
-                name="orderNote"
-                value="{{ orderNote }}">
-              <button type="submit">Place Order</button>
-</form> {% endcomment %}
+<form method="post" action="/api/winkelmand/place-order">
+  <button type="submit">Place Order</button>
+</form>
 
 
 {% render 'partials/foot.liquid' %}

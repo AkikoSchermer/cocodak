@@ -17,18 +17,24 @@
   </div>
 
   {% comment %} 
-              <div class="header-center">
-                <a href="/" class="home-link">
-                  <img
-                    src="/assets/Cocodak-logo.png"
-                    class="logo"
-                    alt="logo" />
-                </a>
-        </div> {% endcomment %}
+                                      <div class="header-center">
+                                        <a href="/" class="home-link">
+                                          <img
+                                            src="/assets/Cocodak-logo.png"
+                                            class="logo"
+                                            alt="logo" />
+                                        </a>
+                    </div> {% endcomment %}
 
   <div class="header-right">
 
     <a href="/winkelmand" class="basket-link">
+      {% comment %} {% if mandje and mandje | size > 0 %}
+                                                  <span class="basket-count">{{ mandje | size }}</span>
+                                      {% endif %} {% endcomment %}
+      {% if itemCount > 0 %}
+        <span class="basket-count">{{ itemCount }}</span>
+      {% endif %}
       <img
         src="/assets/basket.svg"
         class="basket-icoon"

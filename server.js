@@ -162,8 +162,10 @@ app.get('/contact', async (req, res) => {
       const mandjeArray = Array.isArray(mandjeData.items) ? mandjeData.items : [];
       const orderNote = mandjeData.note || '';
 
+      
+      const itemCount = mandjeArray.reduce((total, item) => total + (item.quantity || 1), 0);
 
-    res.render('winkelmand', {mandje: mandjeArray, orderNote });
+    res.render('winkelmand', {mandje: mandjeArray, orderNote,itemCount });
 
   } catch (error) {
     console.error(error);
@@ -201,7 +203,10 @@ app.post('/api/winkelmand/order-note' , async (req, res) => {
     const snapshot = await get(mandjeRef);
     const mandjeData = snapshot.exists() ? snapshot.val() : { items: [] };
 
-    const items = Array.isArray(mandjeData) ? mandjeData : mandjeData.items || [];
+    // const items = Array.isArray(mandjeData) ? mandjeData : mandjeData.items || [];
+    const items = Array.isArray(mandjeData.items)
+    ? mandjeData.items
+    : (mandjeData.items ? Object.values(mandjeData.items) : []);
 
 
     const newMandje = {
@@ -274,8 +279,12 @@ app.post('/api/winkelmand/order-note' , async (req, res) => {
 
         const items = Array.isArray(mandjeData.items) ? mandjeData.items : [];
 
-   
-        items.push({ name });
+        const existingItem = items.find(item => item.name === name);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+        items.push({ name, quantity: 1  });
+      }
 
         const newMandje = {
           items,
